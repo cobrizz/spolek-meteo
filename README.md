@@ -1,0 +1,1 @@
+# spolek-meteo
