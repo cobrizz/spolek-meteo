@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <meta name="robots" content="noindex, nofollow, noarchive">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
     <title>Spolek přátel ZŠ Meteo</title>
     <meta name="description" content="Spolek přátel ZŠ Meteo – škola, komunita, akce." />
     <style>
@@ -43,6 +43,18 @@
       .map-link{display:inline-flex; align-items:center; gap:8px; color:#0f1724; text-decoration:none}
       .map-link:hover{color:#0b6efd; text-decoration:underline}
       .icon{width:18px; height:18px; display:inline-block}
+      .help-section{margin-top:28px; padding-top:8px}
+      .help-header{margin:0 0 12px; font-size:1.5rem}
+      .help-grid{display:grid; grid-template-columns:1.1fr 1.3fr; gap:20px; align-items:start}
+      .help-card{background:#f8fafc; border:1px solid #e2e8f0; border-radius:16px; padding:20px}
+      .help-card h3{margin:0 0 12px; font-size:1.2rem}
+      .help-card p, .help-card li{color:#334155; line-height:1.6}
+      .help-card ul{margin:10px 0 0 18px; padding:0}
+      .qr-box{display:flex; align-items:center; justify-content:center; background:#fff; border-radius:12px; padding:16px; border:1px solid #e2e8f0; margin:0 auto 12px; width:min(100%, 250px)}
+      .qr-box img{display:block; width:100%; max-width:220px; height:auto; border-radius:8px}
+      .form-link{display:inline-flex; align-items:center; justify-content:center; margin-top:12px; padding:12px 16px; border-radius:10px; text-decoration:none; background:#0b6efd; color:#fff; font-weight:700; box-shadow:0 8px 16px rgba(11,110,253,0.18)}
+      .form-link:hover{filter:brightness(0.98)}
+      .small-note{font-size:0.92rem; color:var(--muted)}
       footer{margin-top:20px; text-align:center; color:var(--muted); font-size:0.9rem}
 
       @media (max-width:840px){
@@ -107,6 +119,39 @@
             <p style="margin-top:10px;color:var(--muted);font-size:0.9rem">Chcete nám pomoct? Přidejte se k dobrovolníkům nebo nám pošlete nápad na e-mail.</p>
           </aside>
         </div>
+
+        <section class="help-section" id="jak-pomoci" aria-labelledby="jak-pomoci-title">
+          <h2 class="help-header" id="jak-pomoci-title">Jak můžete podpořit spolek?</h2>
+          <div class="help-grid">
+            <article class="help-card">
+              <h3>Varianta A: Rychlý dar</h3>
+              <div class="qr-box" aria-label="QR kód pro dar">
+                <img src="qr-clen-darce.jpg" alt="QR kód pro rychlý dar do spolku" />
+              </div>
+              <p>Nechcete vyplňovat formuláře? V tom případě stačí otevřít mobilní bankovnictví a naskenovat QR kód.</p>
+              <p><strong>Doporučená výše:</strong> 200 Kč za každé dítě ve škole. Dva sourozenci = 400 Kč, tři sourozenci = 600 Kč.</p>
+              <p class="small-note">Do poznámky uveďte jméno a třídu dítěte. Číslo účtu spolku: 2702172041/2010.</p>
+            </article>
+
+            <article class="help-card">
+              <h3>Varianta B: Řádné členství</h3>
+              <p>Chcete mít vliv na rozpočet, hlasovat o projektech a aktivně se podílet na dění ve spolku? Pak se staňte řádným členem.</p>
+              <ul>
+                <li><strong>Aktivní členství:</strong> plnohodnotné hlasování na členské schůzi a osobní účast na schůzích.</li>
+                <li><strong>Pasivní členství:</strong> členství v komunitě, informace a možnost podílet se bez blokování chodu spolku.</li>
+              </ul>
+              <p>Jak na to:</p>
+              <ol>
+                <li>Vyplňte a podepište přihlášku.</li>
+                <li>Pošlete ji na e-mail <a href="mailto:prihlaska@spolekzsmeteo.cz">prihlaska@spolekzsmeteo.cz</a>.</li>
+                <li>Uhraďte roční členský příspěvek 200 Kč za člena.</li>
+              </ol>
+              <a class="form-link" href="prihlaska_clena_spolku_form.pdf" download="prihlaska_clena_spolku_form.pdf" target="_blank" rel="noopener noreferrer">Stáhnout přihlášku člena spolku (PDF)</a>
+              <div style="margin-top:12px"><a href="clen-vs-darce.html">Přečíst informace o rozdílu mezi členstvím a darem</a></div>
+              <div style="margin-top:8px"><a href="stanovy-spolekpratelzsmeteo-20251008.pdf" target="_blank" rel="noopener noreferrer">Stáhnout aktuální stanovy spolku (PDF)</a></div>
+            </article>
+          </div>
+        </section>
 
         <div class="bottom-logos" aria-hidden="false">
           <img src="METEO_fakultni_zakladni_skola_logo_05_krivky_RGB2.png" alt="Meteo škola logo">

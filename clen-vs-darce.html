@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="cs">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+    <title>Členství nebo dar</title>
+    <meta name="description" content="Informace o rozdílu mezi členstvím ve spolku a jednorázovým darem na podporu školy." />
+    <style>
+      :root{
+        --bg:#f6f8fa;
+        --card:#ffffff;
+        --accent:#0b6efd;
+        --muted:#475569;
+        --text:#0f1724;
+        --line:#e2e8f0;
+        --radius:18px;
+        --max:1000px;
+        font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Arial, sans-serif;
+      }
+      * { box-sizing: border-box; }
+      html, body { margin:0; min-height:100%; }
+      body {
+        background:linear-gradient(180deg, #f6f8fa 0%, #eef2ff 100%);
+        color:var(--text);
+        padding:40px 18px 60px;
+      }
+      .wrap{
+        width:min(100%, var(--max));
+        margin:0 auto;
+      }
+      .card{
+        background:var(--card);
+        border-radius:var(--radius);
+        box-shadow:0 8px 28px rgba(15,23,36,0.06);
+        padding:28px 24px 32px;
+      }
+      .topbar{display:flex; justify-content:space-between; align-items:center; gap:16px; margin-bottom:20px; flex-wrap:wrap;}
+      .brand{font-weight:800; letter-spacing:0.02em; font-size:1.1rem}
+      .back-link{color:var(--accent); text-decoration:none; font-weight:600}
+      h1{margin:0 0 10px; font-size:clamp(2rem, 4vw, 2.8rem); line-height:1.2}
+      .lead{margin:0 0 26px; color:var(--muted); line-height:1.7; font-size:1.04rem}
+      .grid{display:grid; grid-template-columns:1.2fr 0.8fr; gap:24px; align-items:start;}
+      .panel{
+        background:#f8fafc;
+        border:1px solid var(--line);
+        border-radius:14px;
+        padding:20px;
+      }
+      .panel h2{margin:0 0 12px; font-size:1.3rem}
+      .panel p, .panel li{color:#1e293b; line-height:1.7}
+      .panel ul, .panel ol{margin:10px 0 0 20px; padding:0}
+      .qr-wrap{display:flex; align-items:center; justify-content:center; background:#fff; border:1px solid var(--line); border-radius:12px; padding:14px; margin-bottom:14px}
+      .qr-wrap img{display:block; width:100%; max-width:220px; height:auto; border-radius:8px}
+      .action{display:inline-flex; align-items:center; justify-content:center; width:100%; margin-top:12px; padding:12px 16px; border-radius:10px; background:var(--accent); color:#fff; text-decoration:none; font-weight:700; box-shadow:0 8px 16px rgba(11,110,253,0.18)}
+      .muted{color:var(--muted);}
+      .small{font-size:0.95rem}
+      @media (max-width: 760px){
+        body{padding:24px 14px 40px;}
+        .card{padding:20px 16px 26px;}
+        .grid{grid-template-columns:1fr;}
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <div class="card">
+        <div class="topbar">
+          <div class="brand">Spolek přátel ZŠ Meteo</div>
+          <a class="back-link" href="index.html">← Zpět na hlavní stránku</a>
+        </div>
+
+        <h1>Členství nebo dar</h1>
+        <p class="lead">Abychom pro děti mohli vytvořit bezpečné a inspirativní prostředí, dlouhodobě podporujeme aktivity, pomůcky i celou školní komunitu. Můžete podpořit školu dvěma způsoby – buď jednorázovým darem, nebo členstvím ve spolku.</p>
+
+        <div class="grid">
+          <article class="panel">
+            <h2>Varianta A: Rychlý dar přes QR kód</h2>
+            <p>Nechcete vyplňovat žádné formuláře ani přihlášky? Pak je pro Vás nejjednodušší jednorázový dar.</p>
+            <ul>
+              <li>Stačí si otevřít mobilní bankovnictví.</li>
+              <li>Skenujte QR kód napravo.</li>
+              <li>V poznámce uveďte jméno a třídu Vašeho dítěte.</li>
+            </ul>
+            <p><strong>Doporučená výše:</strong> 200 Kč za každé dítě na škole. Dva sourozenci = 400 Kč, tři sourozenci = 600 Kč.</p>
+            <p class="small muted">Částku lze upravit podle Vašich možností. Číslo účtu spolku: 2702172041/2010.</p>
+          </article>
+
+          <aside class="panel">
+            <h2>QR kód pro dar</h2>
+            <div class="qr-wrap">
+              <img src="qr-clen-darce.jpg" alt="QR kód pro dar do spolku" />
+            </div>
+            <a class="action" href="prihlaska_clena_spolku_form.pdf" download="prihlaska_clena_spolku_form.pdf" target="_blank" rel="noopener noreferrer">Stáhnout přihlášku člena</a>
+          </aside>
+        </div>
+
+        <div class="panel" style="margin-top:24px;">
+          <h2>Varianta B: Řádné členství ve Spolku</h2>
+          <p>Pokud chcete mít přímý vliv na to, jaké projekty spolek podporuje, chcete hlasovat o rozpočtu nebo plánovat další aktivity, staňte se členem spolku.</p>
+          <ul>
+            <li><strong>Aktivní členství:</strong> plnohodnotné hlasování na členské schůzi a osobní účast na schůzích.</li>
+            <li><strong>Pasivní členství:</strong> členství v komunitě, informace a možnost podílet se bez nutnosti pravidelné účasti na schůzích.</li>
+          </ul>
+          <ol>
+            <li>Vyplňte a vlastnoručně podepište přihlášku.</li>
+            <li>Naskenujte ji (nebo čitelně vyfoťte mobilem) a pošlete na e-mail: prihlaska@spolekzsmeteo.cz nebo ji předejte třídnímu učiteli či zástupci výkonného výboru Spolku.</li>
+            <li>Uhraďte roční členský příspěvek 200 Kč za člena.</li>
+          </ol>
+          <p class="small muted">Do variabilního symbolu zadejte své 9místné telefonní číslo, které jste uvedli v přihlášce.</p>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
