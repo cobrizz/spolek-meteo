@@ -1,168 +1,555 @@
 <!doctype html>
 <html lang="cs">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
-    <title>Spolek přátel ZŠ Meteo</title>
-    <meta name="description" content="Spolek přátel ZŠ Meteo – škola, komunita, akce." />
-    <style>
-      :root{
-        --bg:#f6f8fa;
-        --card:#ffffff;
-        --accent:#0b6efd;
-        --muted:#6b7280;
-        --radius:14px;
-        --max:900px;
-        font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
-      }
-      *{box-sizing:border-box}
-      html,body{height:100%; margin:0}
-      body{
-        margin:0; min-height:100vh; background:linear-gradient(180deg,var(--bg),#eef2ff 60%); color:#0f1724; -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale; display:flex; justify-content:center; align-items:flex-start; padding:40px 20px 60px; overflow-x:hidden;
-      }
-      .wrap{width:min(100%,var(--max)); margin:0 auto;} 
-      .card{background:var(--card); border-radius:var(--radius); box-shadow:0 8px 30px rgba(15,23,36,0.08); padding:36px;}
-      header{display:flex; flex-direction:column; align-items:flex-start; gap:24px}
-      .logo{width:128px; height:128px; border-radius:18px; background:linear-gradient(135deg,var(--accent),#7c3aed); display:flex; align-items:center; justify-content:center; overflow:hidden; box-shadow:0 12px 24px rgba(11,110,253,0.14);}
-      .logo img{width:100%;height:100%;object-fit:cover;display:block}
-      .bottom-logos{display:flex;gap:16px;justify-content:center;align-items:center;margin-top:18px}
-      .bottom-logos img{height:48px;width:auto;border-radius:8px;box-shadow:0 6px 16px rgba(15,23,36,0.06);background:#fff;padding:6px}
-      h1{margin:0; font-size:1.8rem}
-      p.lead{color:var(--muted); margin:14px 0 22px; line-height:1.6}
-      .actions{display:flex; gap:12px; flex-wrap:wrap}
-      .btn{display:inline-flex; align-items:center; gap:10px; padding:10px 14px; border-radius:10px; text-decoration:none; color:#fff; background:var(--accent); box-shadow:0 6px 18px rgba(11,110,253,0.14); font-weight:600}
-      .btn.secondary{background:#111827; box-shadow:none}
-      .content-grid{display:grid; grid-template-columns:1fr 320px; gap:24px; margin-top:20px}
-      .about{line-height:1.6; color:#0f1724}
-      .contact{background:#f8fafc; border-radius:12px; padding:18px}
-      .contact h3{margin:0 0 8px}
-      .contact p{margin:6px 0; color:var(--muted)}
-      .contact-row{display:flex; flex-wrap:wrap; gap:8px; align-items:center; margin:10px 0;}
-      .contact-row strong{font-weight:700; color:#111827; min-width:90px}
-      .map-link{display:inline-flex; align-items:center; gap:8px; color:#0f1724; text-decoration:none}
-      .map-link:hover{color:#0b6efd; text-decoration:underline}
-      .icon{width:18px; height:18px; display:inline-block}
-      .help-section{margin-top:28px; padding-top:8px}
-      .help-header{margin:0 0 12px; font-size:1.5rem}
-      .help-grid{display:grid; grid-template-columns:1.1fr 1.3fr; gap:20px; align-items:start}
-      .help-card{background:#f8fafc; border:1px solid #e2e8f0; border-radius:16px; padding:20px}
-      .help-card h3{margin:0 0 12px; font-size:1.2rem}
-      .help-card p, .help-card li{color:#334155; line-height:1.6}
-      .help-card ul{margin:10px 0 0 18px; padding:0}
-      .qr-box{display:flex; align-items:center; justify-content:center; background:#fff; border-radius:12px; padding:16px; border:1px solid #e2e8f0; margin:0 auto 12px; width:min(100%, 250px)}
-      .qr-box img{display:block; width:100%; max-width:220px; height:auto; border-radius:8px}
-      .form-link{display:inline-flex; align-items:center; justify-content:center; margin-top:12px; padding:12px 16px; border-radius:10px; text-decoration:none; background:#0b6efd; color:#fff; font-weight:700; box-shadow:0 8px 16px rgba(11,110,253,0.18)}
-      .form-link:hover{filter:brightness(0.98)}
-      .small-note{font-size:0.92rem; color:var(--muted)}
-      footer{margin-top:20px; text-align:center; color:var(--muted); font-size:0.9rem}
 
-      @media (max-width:840px){
-        .content-grid{grid-template-columns:1fr;}
-        header{gap:16px}
-        .logo{width:112px;height:112px}
-        body{padding:24px 16px 36px;}
-        .card{padding:24px;}
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+  <title>Spolek přátel ZŠ Meteo</title>
+  <meta name="description" content="Spolek přátel ZŠ Meteo – škola, komunita, akce." />
+  <style>
+    :root {
+      --bg: #f6f8fa;
+      --card: #ffffff;
+      --accent: #0b6efd;
+      --muted: #6b7280;
+      --radius: 14px;
+      --max: 900px;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    }
+
+    * {
+      box-sizing: border-box
+    }
+
+    html,
+    body {
+      height: 100%;
+      margin: 0
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background: linear-gradient(180deg, var(--bg), #eef2ff 60%);
+      color: #0f1724;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      padding: 40px 20px 60px;
+      overflow-x: hidden;
+    }
+
+    .wrap {
+      width: min(100%, var(--max));
+      margin: 0 auto;
+    }
+
+    .card {
+      background: var(--card);
+      border-radius: var(--radius);
+      box-shadow: 0 8px 30px rgba(15, 23, 36, 0.08);
+      padding: 36px;
+    }
+
+    header {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 24px
+    }
+
+    .logo {
+      width: 128px;
+      height: 128px;
+      border-radius: 18px;
+      background: linear-gradient(135deg, var(--accent), #7c3aed);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      box-shadow: 0 12px 24px rgba(11, 110, 253, 0.14);
+    }
+
+    .logo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block
+    }
+
+    .bottom-logos {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      align-items: center;
+      margin-top: 18px
+    }
+
+    .bottom-logos img {
+      height: 48px;
+      width: auto;
+      border-radius: 8px;
+      box-shadow: 0 6px 16px rgba(15, 23, 36, 0.06);
+      background: #fff;
+      padding: 6px
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 1.8rem
+    }
+
+    p.lead {
+      color: var(--muted);
+      margin: 14px 0 22px;
+      line-height: 1.6
+    }
+
+    .actions {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 14px;
+      border-radius: 10px;
+      text-decoration: none;
+      color: #fff;
+      background: var(--accent);
+      box-shadow: 0 6px 18px rgba(11, 110, 253, 0.14);
+      font-weight: 600
+    }
+
+    .btn.secondary {
+      background: #111827;
+      box-shadow: none
+    }
+
+    .btn.calendar {
+      background: linear-gradient(135deg, #0f172a, #334155);
+      box-shadow: 0 8px 20px rgba(15, 23, 42, 0.12)
+    }
+
+    .content-grid {
+      display: grid;
+      grid-template-columns: 1fr 320px;
+      gap: 24px;
+      margin-top: 20px
+    }
+
+    .about {
+      line-height: 1.6;
+      color: #0f1724
+    }
+
+    .contact {
+      background: #f8fafc;
+      border-radius: 12px;
+      padding: 18px
+    }
+
+    .contact h3 {
+      margin: 0 0 8px
+    }
+
+    .contact p {
+      margin: 6px 0;
+      color: var(--muted)
+    }
+
+    .contact-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      align-items: center;
+      margin: 10px 0;
+    }
+
+    .contact-row strong {
+      font-weight: 700;
+      color: #111827;
+      min-width: 90px
+    }
+
+    .map-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: #0f1724;
+      text-decoration: none
+    }
+
+    .map-link:hover {
+      color: #0b6efd;
+      text-decoration: underline
+    }
+
+    .icon {
+      width: 18px;
+      height: 18px;
+      display: inline-block
+    }
+
+    .help-section {
+      margin-top: 28px;
+      padding-top: 8px
+    }
+
+    .help-header {
+      margin: 0 0 12px;
+      font-size: 1.5rem
+    }
+
+    .help-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 1.3fr;
+      gap: 20px;
+      align-items: start
+    }
+
+    .help-card {
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 16px;
+      padding: 20px
+    }
+
+    .help-card h3 {
+      margin: 0 0 12px;
+      font-size: 1.2rem
+    }
+
+    .help-card p,
+    .help-card li {
+      color: #334155;
+      line-height: 1.6
+    }
+
+    .help-card ul {
+      margin: 10px 0 0 18px;
+      padding: 0
+    }
+
+    .qr-box {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #fff;
+      border-radius: 12px;
+      padding: 16px;
+      border: 1px solid #e2e8f0;
+      margin: 0 auto 12px;
+      width: min(100%, 250px)
+    }
+
+    .qr-box img {
+      display: block;
+      width: 100%;
+      max-width: 220px;
+      height: auto;
+      border-radius: 8px
+    }
+
+    .form-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 12px;
+      padding: 12px 16px;
+      border-radius: 10px;
+      text-decoration: none;
+      background: #0b6efd;
+      color: #fff;
+      font-weight: 700;
+      box-shadow: 0 8px 16px rgba(11, 110, 253, 0.18)
+    }
+
+    .form-link:hover {
+      filter: brightness(0.98)
+    }
+
+    .small-note {
+      font-size: 0.92rem;
+      color: var(--muted)
+    }
+
+    .events-section {
+      margin-top: 32px
+    }
+
+    .events-section h2 {
+      margin: 0 0 14px;
+      font-size: 1.5rem
+    }
+
+    .events-card {
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 16px;
+      overflow: hidden
+    }
+
+    .events-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.98rem
+    }
+
+    .events-table th,
+    .events-table td {
+      text-align: left;
+      padding: 16px 18px;
+      border-bottom: 1px solid #e2e8f0;
+      vertical-align: top
+    }
+
+    .events-table thead th {
+      background: #edf2ff;
+      color: #1f2937;
+      font-weight: 700
+    }
+
+    .events-table tbody tr:last-child td {
+      border-bottom: none
+    }
+
+    .events-table td:first-child {
+      width: 210px;
+      color: #0f172a;
+      font-weight: 700
+    }
+
+    .events-table td:first-child span {
+      display: inline-block;
+      margin-top: 4px;
+      font-weight: 600;
+      color: var(--muted)
+    }
+
+    footer {
+      margin-top: 20px;
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.9rem
+    }
+
+    @media (max-width:840px) {
+      .content-grid {
+        grid-template-columns: 1fr;
       }
-    </style>
-  </head>
-  <body>
-    <div class="wrap">
-      <div class="card">
-        <header>
-          <div class="logo"><img src="Logo%20spolek.jpg" alt="Logo Spolek ZŠ Meteo"></div>
-          <div>
-            <h1>Spolek přátel ZŠ Meteo</h1>
-            <p class="lead">Vítáme vás na oficiální stránce spolku – podporujeme školní aktivity, rodiče i učitele, pořádáme akce a sbírky pro lepší život naší školy.</p>
-            <div class="actions">
-              <a class="btn" href="https://www.facebook.com/spolekzsmeteo" target="_blank" rel="noopener noreferrer"> 
-                <svg class="icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                  <path d="M22 12.07C22 6.48 17.52 2 11.93 2S1.86 6.48 1.86 12.07c0 4.99 3.66 9.13 8.44 9.91v-7.02H7.9v-2.9h2.4V9.5c0-2.37 1.42-3.68 3.58-3.68 1.04 0 2.13.18 2.13.18v2.34h-1.2c-1.18 0-1.54.73-1.54 1.47v1.78h2.62l-.42 2.9h-2.2v7.02c4.78-.78 8.44-4.92 8.44-9.91z" fill="#fff"/>
-                </svg>
-                Sledujte nás na Facebooku
-              </a>
-              <a class="btn secondary" href="#jak-pomoci">Podpořte nás</a>
-            </div>
+
+      .events-table,
+      .events-table thead,
+      .events-table tbody,
+      .events-table th,
+      .events-table td,
+      .events-table tr {
+        display: block;
+      }
+
+      .events-table thead {
+        display: none;
+      }
+
+      .events-table td {
+        padding: 12px 16px;
+        border-bottom: 1px solid #e2e8f0;
+      }
+
+      .events-table td:first-child {
+        width: auto;
+        background: #eef2ff;
+      }
+
+      header {
+        gap: 16px
+      }
+
+      .logo {
+        width: 112px;
+        height: 112px
+      }
+
+      body {
+        padding: 24px 16px 36px;
+      }
+
+      .card {
+        padding: 24px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+    <div class="card">
+      <header>
+        <div class="logo"><img src="Logo%20spolek.jpg" alt="Logo Spolek ZŠ Meteo"></div>
+        <div>
+          <h1>Spolek přátel ZŠ Meteo</h1>
+          <p class="lead">Vítáme vás na oficiální stránce spolku – podporujeme školní aktivity, rodiče i učitele,
+            pořádáme akce a sbírky pro lepší život naší školy.</p>
+          <div class="actions">
+            <a class="btn" href="https://www.facebook.com/spolekzsmeteo" target="_blank" rel="noopener noreferrer">
+              <svg class="icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <path
+                  d="M22 12.07C22 6.48 17.52 2 11.93 2S1.86 6.48 1.86 12.07c0 4.99 3.66 9.13 8.44 9.91v-7.02H7.9v-2.9h2.4V9.5c0-2.37 1.42-3.68 3.58-3.68 1.04 0 2.13.18 2.13.18v2.34h-1.2c-1.18 0-1.54.73-1.54 1.47v1.78h2.62l-.42 2.9h-2.2v7.02c4.78-.78 8.44-4.92 8.44-9.91z"
+                  fill="#fff" />
+              </svg>
+              Sledujte nás na Facebooku
+            </a>
+            <a class="btn secondary" href="#jak-pomoci">Podpořte nás</a>
+            <a class="btn calendar" href="#planovane-akce">
+              <svg class="icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <path d="M7 2.75a.75.75 0 0 1 .75.75V4h8.5V3.5a.75.75 0 0 1 1.5 0V4h1.25A2.75 2.75 0 0 1 21.75 6.75v11.5A2.75 2.75 0 0 1 19 21H5A2.75 2.75 0 0 1 2.25 18.25V6.75A2.75 2.75 0 0 1 5 4h1.25V3.5A.75.75 0 0 1 7 2.75zm12.25 7.5H4.75v8a1.25 1.25 0 0 0 1.25 1.25h12a1.25 1.25 0 0 0 1.25-1.25v-8zM7.5 11.5h3v3h-3v-3zm5 0h3v3h-3v-3z" fill="#fff"/>
+              </svg>
+              Plánované akce
+            </a>
           </div>
-        </header>
-
-        <div class="content-grid">
-          <main class="about">
-            <h2>O nás</h2>
-            <p>Jsme spolek rodičů, učitelů a přátel ZŠ Meteo. Naším cílem je podpora školních projektů, zlepšení školního prostředí a posílení komunitních aktivit. Připojte se k nám, pomozte s organizací akcí nebo přijďte na jednu z našich schůzek.</p>
-            <h2>Co děláme</h2>
-            <ul>
-              <li>Pořádáme školní akce (jarmarky, besídky, výlety)</li>
-              <li>Podporujeme vybavení tříd a školní zahrady</li>
-              <li>Spolupracujeme s vedením školy a místní komunitou</li>
-            </ul>
-          </main>
-
-          <aside class="contact" id="kontakt" role="complementary">
-            <h3>Kontakt</h3>
-            <p>Máte dotaz nebo návrh? Napište nám nebo zavolejte.</p>
-            <div class="contact-row">
-              <strong>E-mail:</strong>
-              <a href="mailto:info@spolekzsmeteo.cz">info@spolekzsmeteo.cz</a>
-            </div>
-            <div class="contact-row">
-              <strong>Web:</strong>
-              <a href="https://spolekzsmeteo.cz" target="_blank" rel="noopener noreferrer">spolekzsmeteo.cz</a>
-            </div>
-            <div class="contact-row">
-              <strong>Adresa:</strong>
-              <a class="map-link" href="https://www.google.com/maps/search/?api=1&query=Meteorologická+181+Praha+4+14200" target="_blank" rel="noopener noreferrer">
-                <svg class="icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M12 2C8.1 2 5 5.1 5 9c0 5.2 7 13 7 13s7-7.8 7-13c0-3.9-3.1-7-7-7z" fill="#0b6efd"/></svg>
-                Meteorologická 181, Praha 4, 14200
-              </a>
-            </div>
-            <p style="margin-top:10px;color:var(--muted);font-size:0.9rem">Chcete nám pomoct? Přidejte se k dobrovolníkům nebo nám pošlete nápad na e-mail.</p>
-          </aside>
         </div>
+      </header>
 
-        <section class="help-section" id="jak-pomoci" aria-labelledby="jak-pomoci-title">
-          <h2 class="help-header" id="jak-pomoci-title">Jak můžete podpořit spolek?</h2>
-          <div class="help-grid">
-            <article class="help-card">
-              <h3>Varianta A: Rychlý dar</h3>
-              <div class="qr-box" aria-label="QR kód pro dar">
-                <img src="qr-clen-darce.jpg" alt="QR kód pro rychlý dar do spolku" />
-              </div>
-              <p>Nechcete vyplňovat formuláře? V tom případě stačí otevřít mobilní bankovnictví a naskenovat QR kód.</p>
-              <p><strong>Doporučená výše:</strong> 200 Kč za každé dítě ve škole. Dva sourozenci = 400 Kč, tři sourozenci = 600 Kč.</p>
-              <p class="small-note">Do poznámky uveďte jméno a třídu dítěte. Číslo účtu spolku: 2702172041/2010.</p>
-            </article>
+      <div class="content-grid">
+        <main class="about">
+          <h2>O nás</h2>
+          <p>Jsme spolek rodičů, učitelů a přátel ZŠ Meteo. Naším cílem je podpora školních projektů, zlepšení školního
+            prostředí a posílení komunitních aktivit. Připojte se k nám, pomozte s organizací akcí nebo přijďte na jednu
+            z našich schůzek.</p>
+          <h2>Co děláme</h2>
+          <ul>
+            <li>Pořádáme školní akce (jarmarky, besídky, výlety)</li>
+            <li>Podporujeme vybavení tříd a školní zahrady</li>
+            <li>Spolupracujeme s vedením školy a místní komunitou</li>
+          </ul>
+        </main>
 
-            <article class="help-card">
-              <h3>Varianta B: Řádné členství</h3>
-              <p>Chcete mít vliv na rozpočet, hlasovat o projektech a aktivně se podílet na dění ve spolku? Pak se staňte řádným členem.</p>
-              <ul>
-                <li><strong>Aktivní členství:</strong> plnohodnotné hlasování na členské schůzi a osobní účast na schůzích.</li>
-                <li><strong>Pasivní členství:</strong> členství v komunitě, informace a možnost podílet se bez blokování chodu spolku.</li>
-              </ul>
-              <p>Jak na to:</p>
-              <ol>
-                <li>Vyplňte a podepište přihlášku.</li>
-                <li>Pošlete ji na e-mail <a href="mailto:prihlaska@spolekzsmeteo.cz">prihlaska@spolekzsmeteo.cz</a>.</li>
-                <li>Uhraďte roční členský příspěvek 200 Kč za člena.</li>
-              </ol>
-              <a class="form-link" href="prihlaska_clena_spolku_form.pdf" download="prihlaska_clena_spolku_form.pdf" target="_blank" rel="noopener noreferrer">Stáhnout přihlášku člena spolku (PDF)</a>
-              <div style="margin-top:12px"><a href="clen-vs-darce.html">Přečíst informace o rozdílu mezi členstvím a darem</a></div>
-              <div style="margin-top:8px"><a href="stanovy-spolekpratelzsmeteo-20251008.pdf" target="_blank" rel="noopener noreferrer">Stáhnout aktuální stanovy spolku (PDF)</a></div>
-            </article>
+        <aside class="contact" id="kontakt" role="complementary">
+          <h3>Kontakt</h3>
+          <p>Máte dotaz nebo návrh? Napište nám nebo zavolejte.</p>
+          <div class="contact-row">
+            <strong>Název:</strong>
+            <a>Spolek přátel ZŠ Meteo, z. s.</a>
           </div>
-        </section>
-
-        <div class="bottom-logos" aria-hidden="false">
-          <img src="METEO_fakultni_zakladni_skola_logo_05_krivky_RGB2.png" alt="Meteo škola logo">
-          <img src="mc-praha-libus-znak-s-textem.jpg" alt="MC Praha Libuš">
-        </div>
-
-        <footer>
-          &copy; <span id="year"></span> Spolek přátel ZŠ Meteo – Všechna práva vyhrazena
-        </footer>
+          <div class="contact-row">
+            <strong>Předseda</strong>
+            <a href="https://www.linkedin.com/in/jan-žáček-2b708a40" target="_blank" rel="noopener noreferrer">Jan
+              Žáček</a>
+          </div>
+          <div class="contact-row">
+            <strong>Místopředsedkyně:</strong>
+            <a href="https://www.linkedin.com/in/eva-zimmerhanzlov%C3%A1-002aa326a/" target="_blank"
+              rel="noopener noreferrer">Eva Zimmerhanzlová</a>
+          </div>
+          <div class="contact-row">
+            <strong>E-mail:</strong>
+            <a href="mailto:info@spolekzsmeteo.cz">info@spolekzsmeteo.cz</a>
+          </div>
+          <div class="contact-row">
+            <strong>Web:</strong>
+            <a href="https://spolekzsmeteo.cz" target="_blank" rel="noopener noreferrer">spolekzsmeteo.cz</a>
+          </div>
+          <div class="contact-row">
+            <strong>Adresa:</strong>
+            <a class="map-link" href="https://www.google.com/maps/search/?api=1&query=Meteorologická+181+Praha+4+14200"
+              target="_blank" rel="noopener noreferrer">
+              <svg class="icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <path d="M12 2C8.1 2 5 5.1 5 9c0 5.2 7 13 7 13s7-7.8 7-13c0-3.9-3.1-7-7-7z" fill="#0b6efd" />
+              </svg>
+              Meteorologická 181, Praha 4, 14200
+            </a>
+          </div>
+          <p style="margin-top:10px;color:var(--muted);font-size:0.9rem">Chcete nám pomoct? Přidejte se k dobrovolníkům
+            nebo nám pošlete nápad na e-mail.</p>
+        </aside>
       </div>
+
+      <section class="help-section" id="jak-pomoci" aria-labelledby="jak-pomoci-title">
+        <h2 class="help-header" id="jak-pomoci-title">Jak můžete podpořit spolek?</h2>
+        <div class="help-grid">
+          <article class="help-card">
+            <h3>Varianta A: Rychlý dar</h3>
+            <div class="qr-box" aria-label="QR kód pro dar">
+              <img src="qr-clen-darce.jpg" alt="QR kód pro rychlý dar do spolku" />
+            </div>
+            <p>Nechcete vyplňovat formuláře? V tom případě stačí otevřít mobilní bankovnictví a naskenovat QR kód.</p>
+            <p><strong>Doporučená výše:</strong> 200 Kč za každé dítě ve škole. Dva sourozenci = 400 Kč, tři sourozenci
+              = 600 Kč.</p>
+            <p class="small-note">Do poznámky uveďte jméno a třídu dítěte. Číslo účtu spolku: 2702172041/2010.</p>
+          </article>
+
+          <article class="help-card">
+            <h3>Varianta B: Řádné členství</h3>
+            <p>Chcete mít vliv na rozpočet, hlasovat o projektech a aktivně se podílet na dění ve spolku? Pak se staňte
+              řádným členem.</p>
+            <ul>
+              <li><strong>Aktivní členství:</strong> plnohodnotné hlasování na členské schůzi a osobní účast na
+                schůzích.</li>
+              <li><strong>Pasivní členství:</strong> členství v komunitě, informace a možnost podílet se bez blokování
+                chodu spolku.</li>
+            </ul>
+            <p>Jak na to:</p>
+            <ol>
+              <li>Vyplňte a podepište přihlášku.</li>
+              <li>Pošlete ji na e-mail <a href="mailto:prihlaska@spolekzsmeteo.cz">prihlaska@spolekzsmeteo.cz</a>.</li>
+              <li>Uhraďte roční členský příspěvek 200 Kč za člena.</li>
+            </ol>
+            <a class="form-link" href="prihlaska_clena_spolku_form.pdf" download="prihlaska_clena_spolku_form.pdf"
+              target="_blank" rel="noopener noreferrer">Stáhnout přihlášku člena spolku (PDF)</a>
+            <div style="margin-top:12px"><a href="clen-vs-darce.html">Přečíst informace o rozdílu mezi členstvím a
+                darem</a></div>
+            <div style="margin-top:8px"><a href="stanovy-spolekpratelzsmeteo-20251008.pdf" target="_blank"
+                rel="noopener noreferrer">Stáhnout aktuální stanovy spolku (PDF)</a></div>
+          </article>
+        </div>
+      </section>
+
+      <section class="events-section" id="planovane-akce" aria-labelledby="planovane-akce-title">
+        <h2 id="planovane-akce-title">Plánované akce</h2>
+        <div class="events-card">
+          <table class="events-table" aria-label="Plánované akce spolku">
+            <thead>
+              <tr>
+                <th>Datum</th>
+                <th>Akce</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>16. 9. 2026<br><span>16:00</span></td>
+                <td>Schůzce Spolku ve Sborovně ZŠ Meteorologická</td>
+              </tr>
+              <tr>
+                <td>Říjen/listopad</td>
+                <td>Halloween</td>
+              </tr>
+              <tr>
+                <td>Listopad/prosinec</td>
+                <td>Den deskových her</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <div class="bottom-logos" aria-hidden="false">
+        <img src="METEO_fakultni_zakladni_skola_logo_05_krivky_RGB2.png" alt="Meteo škola logo">
+        <img src="mc-praha-libus-znak-s-textem.jpg" alt="MC Praha Libuš">
+      </div>
+
+      <footer>
+        &copy; <span id="year"></span> Spolek přátel ZŠ Meteo, z. s. – Všechna práva vyhrazena
+      </footer>
     </div>
-    <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
-  </body>
+  </div>
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+
 </html>
