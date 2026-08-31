@@ -38,6 +38,21 @@
       .topbar{display:flex; justify-content:space-between; align-items:center; gap:16px; margin-bottom:20px; flex-wrap:wrap;}
       .brand{font-weight:800; letter-spacing:0.02em; font-size:1.1rem}
       .back-link{color:var(--accent); text-decoration:none; font-weight:600}
+      .lang-switcher{
+        position:fixed; top:16px; right:18px; display:flex; gap:8px; flex-wrap:wrap; justify-content:flex-end; z-index:20; padding:8px 10px; border-radius:999px; background:rgba(255,255,255,0.78); backdrop-filter:blur(8px); box-shadow:0 8px 18px rgba(15,23,36,0.08); border:1px solid rgba(148,163,184,0.3)
+      }
+      .lang-btn{
+        position:relative; appearance:none; border:1px solid transparent; background:transparent; color:#0f172a; border-radius:999px; padding:8px 10px; display:inline-flex; align-items:center; justify-content:center; gap:6px; font-size:0.8rem; font-weight:700; cursor:pointer; transition:all 0.2s ease; min-width:42px; min-height:42px;
+      }
+      .lang-btn::after{
+        content: attr(data-label); position:absolute; left:50%; top:calc(100% + 10px); transform:translateX(-50%) translateY(4px); background:rgba(15,23,36,0.92); color:#fff; border-radius:8px; padding:6px 8px; font-size:0.72rem; white-space:nowrap; opacity:0; pointer-events:none; transition:all 0.18s ease; box-shadow:0 8px 20px rgba(15,23,36,0.16);
+      }
+      .lang-btn:hover{border-color:rgba(11,110,253,0.3); background:rgba(11,110,253,0.04)}
+      .lang-btn:hover::after{opacity:1; transform:translateX(-50%) translateY(0)}
+      .lang-btn.active{background:#0b6efd; color:#fff; box-shadow:0 6px 16px rgba(11,110,253,0.18)}
+      .lang-btn.active:hover{background:#0b6efd}
+      .lang-flag{display:block; width:28px; height:20px; border-radius:6px; object-fit:cover; box-shadow:0 2px 8px rgba(15,23,36,0.12); border:1px solid rgba(15,23,36,0.08)}
+      .lang-code{display:none}
       h1{margin:0 0 10px; font-size:clamp(2rem, 4vw, 2.8rem); line-height:1.2}
       .lead{margin:0 0 26px; color:var(--muted); line-height:1.7; font-size:1.04rem}
       .grid{display:grid; grid-template-columns:1.2fr 0.8fr; gap:24px; align-items:start;}
@@ -59,57 +74,220 @@
         body{padding:24px 14px 40px;}
         .card{padding:20px 16px 26px;}
         .grid{grid-template-columns:1fr;}
+        .lang-switcher{top:12px; right:12px;}
       }
     </style>
   </head>
   <body>
+    <div class="lang-switcher" aria-label="Language selector">
+      <button class="lang-btn active" type="button" data-lang="cs" data-label="česky" aria-label="Česky" aria-pressed="true">
+        <img class="lang-flag" src="https://flagcdn.com/w40/cz.png" alt="Česko" />
+      </button>
+      <button class="lang-btn" type="button" data-lang="vi" data-label="tiếng việt" aria-label="Tiếng Việt" aria-pressed="false">
+        <img class="lang-flag" src="https://flagcdn.com/w40/vn.png" alt="Việt Nam" />
+      </button>
+      <button class="lang-btn" type="button" data-lang="en" data-label="english" aria-label="English" aria-pressed="false">
+        <img class="lang-flag" src="https://flagcdn.com/w40/gb.png" alt="United Kingdom" />
+      </button>
+      <button class="lang-btn" type="button" data-lang="uk" data-label="українська" aria-label="Українська" aria-pressed="false">
+        <img class="lang-flag" src="https://flagcdn.com/w40/ua.png" alt="Україна" />
+      </button>
+    </div>
+
     <div class="wrap">
       <div class="card">
         <div class="topbar">
-          <div class="brand">Spolek přátel ZŠ Meteo</div>
-          <a class="back-link" href="index.html">← Zpět na hlavní stránku</a>
+          <div class="brand" data-i18n="brand">Spolek přátel ZŠ Meteo</div>
+          <a class="back-link" href="index.html" data-i18n="backLink">← Zpět na hlavní stránku</a>
         </div>
 
-        <h1>Členství nebo dar</h1>
-        <p class="lead">Abychom pro děti mohli vytvořit bezpečné a inspirativní prostředí, dlouhodobě podporujeme aktivity, pomůcky i celou školní komunitu. Můžete podpořit školu dvěma způsoby – buď jednorázovým darem, nebo členstvím ve spolku.</p>
+        <h1 data-i18n="pageTitle">Členství nebo dar</h1>
+        <p class="lead" data-i18n="lead">Abychom pro děti mohli vytvořit bezpečné a inspirativní prostředí, dlouhodobě podporujeme aktivity, pomůcky i celou školní komunitu. Můžete podpořit školu dvěma způsoby – buď jednorázovým darem, nebo členstvím ve spolku.</p>
 
         <div class="grid">
           <article class="panel">
-            <h2>Varianta A: Rychlý dar přes QR kód</h2>
-            <p>Nechcete vyplňovat žádné formuláře ani přihlášky? Pak je pro Vás nejjednodušší jednorázový dar.</p>
+            <h2 data-i18n="variantA">Varianta A: Rychlý dar přes QR kód</h2>
+            <p data-i18n="variantAText">Nechcete vyplňovat žádné formuláře ani přihlášky? Pak je pro Vás nejjednodušší jednorázový dar.</p>
             <ul>
-              <li>Stačí si otevřít mobilní bankovnictví.</li>
-              <li>Skenujte QR kód napravo.</li>
-              <li>V poznámce uveďte jméno a třídu Vašeho dítěte.</li>
+              <li data-i18n="donationStep1">Stačí si otevřít mobilní bankovnictví.</li>
+              <li data-i18n="donationStep2">Skenujte QR kód napravo.</li>
+              <li data-i18n="donationStep3">V poznámce uveďte jméno a třídu Vašeho dítěte.</li>
             </ul>
-            <p><strong>Doporučená výše:</strong> 200 Kč za každé dítě na škole. Dva sourozenci = 400 Kč, tři sourozenci = 600 Kč.</p>
-            <p class="small muted">Částku lze upravit podle Vašich možností. Číslo účtu spolku: 2702172041/2010.</p>
+            <p><strong data-i18n="recommendedAmountLabel">Doporučená výše:</strong> <span data-i18n="recommendedAmountValue">200 Kč za každé dítě na škole. Dva sourozenci = 400 Kč, tři sourozenci = 600 Kč.</span></p>
+            <p class="small muted" data-i18n="accountNote">Částku lze upravit podle Vašich možností. Číslo účtu spolku: 2702172041/2010.</p>
           </article>
 
           <aside class="panel">
-            <h2>QR kód pro dar</h2>
+            <h2 data-i18n="qrTitle">QR kód pro dar</h2>
             <div class="qr-wrap">
               <img src="qr-clen-darce.jpg" alt="QR kód pro dar do spolku" />
             </div>
-            <a class="action" href="prihlaska_clena_spolku_form.pdf" download="prihlaska_clena_spolku_form.pdf" target="_blank" rel="noopener noreferrer">Stáhnout přihlášku člena</a>
+            <a class="action" href="prihlaska_clena_spolku_form.pdf" download="prihlaska_clena_spolku_form.pdf" target="_blank" rel="noopener noreferrer" data-i18n="downloadForm">Stáhnout přihlášku člena</a>
           </aside>
         </div>
 
         <div class="panel" style="margin-top:24px;">
-          <h2>Varianta B: Řádné členství ve Spolku</h2>
-          <p>Pokud chcete mít přímý vliv na to, jaké projekty spolek podporuje, chcete hlasovat o rozpočtu nebo plánovat další aktivity, staňte se členem spolku.</p>
+          <h2 data-i18n="variantB">Varianta B: Řádné členství ve Spolku</h2>
+          <p data-i18n="variantBText">Pokud chcete mít přímý vliv na to, jaké projekty spolek podporuje, chcete hlasovat o rozpočtu nebo plánovat další aktivity, staňte se členem spolku.</p>
           <ul>
-            <li><strong>Aktivní členství:</strong> plnohodnotné hlasování na členské schůzi a osobní účast na schůzích.</li>
-            <li><strong>Pasivní členství:</strong> členství v komunitě, informace a možnost podílet se bez nutnosti pravidelné účasti na schůzích.</li>
+            <li><strong data-i18n="activeMembershipLabel">Aktivní členství:</strong> <span data-i18n="activeMembershipValue">plnohodnotné hlasování na členské schůzi a osobní účast na schůzích.</span></li>
+            <li><strong data-i18n="passiveMembershipLabel">Pasivní členství:</strong> <span data-i18n="passiveMembershipValue">členství v komunitě, informace a možnost podílet se bez nutnosti pravidelné účasti na schůzích.</span></li>
           </ul>
           <ol>
-            <li>Vyplňte a vlastnoručně podepište přihlášku.</li>
-            <li>Naskenujte ji (nebo čitelně vyfoťte mobilem) a pošlete na e-mail: prihlaska@spolekzsmeteo.cz nebo ji předejte třídnímu učiteli či zástupci výkonného výboru Spolku.</li>
-            <li>Uhraďte roční členský příspěvek 200 Kč za člena.</li>
+            <li data-i18n="membershipStep1">Vyplňte a vlastnoručně podepište přihlášku.</li>
+            <li data-i18n="membershipStep2">Naskenujte ji (nebo čitelně vyfoťte mobilem) a pošlete na e-mail: prihlaska@spolekzsmeteo.cz nebo ji předejte třídnímu učiteli či zástupci výkonného výboru Spolku.</li>
+            <li data-i18n="membershipStep3">Uhraďte roční členský příspěvek 200 Kč za člena.</li>
           </ol>
-          <p class="small muted">Do variabilního symbolu zadejte své 9místné telefonní číslo, které jste uvedli v přihlášce.</p>
+          <p class="small muted" data-i18n="membershipNote">Do variabilního symbolu zadejte své 9místné telefonní číslo, které jste uvedli v přihlášce.</p>
         </div>
       </div>
     </div>
+
+    <script>
+      const translations = {
+        cs: {
+          brand: 'Spolek přátel ZŠ Meteo',
+          backLink: '← Zpět na hlavní stránku',
+          pageTitle: 'Členství nebo dar',
+          lead: 'Abychom pro děti mohli vytvořit bezpečné a inspirativní prostředí, dlouhodobě podporujeme aktivity, pomůcky i celou školní komunitu. Můžete podpořit školu dvěma způsoby – buď jednorázovým darem, nebo členstvím ve spolku.',
+          variantA: 'Varianta A: Rychlý dar přes QR kód',
+          variantAText: 'Nechcete vyplňovat žádné formuláře ani přihlášky? Pak je pro Vás nejjednodušší jednorázový dar.',
+          donationStep1: 'Stačí si otevřít mobilní bankovnictví.',
+          donationStep2: 'Skenujte QR kód napravo.',
+          donationStep3: 'V poznámce uveďte jméno a třídu Vašeho dítěte.',
+          recommendedAmountLabel: 'Doporučená výše:',
+          recommendedAmountValue: '200 Kč za každé dítě na škole. Dva sourozenci = 400 Kč, tři sourozenci = 600 Kč.',
+          accountNote: 'Částku lze upravit podle Vašich možností. Číslo účtu spolku: 2702172041/2010.',
+          qrTitle: 'QR kód pro dar',
+          downloadForm: 'Stáhnout přihlášku člena',
+          variantB: 'Varianta B: Řádné členství ve Spolku',
+          variantBText: 'Pokud chcete mít přímý vliv na to, jaké projekty spolek podporuje, chcete hlasovat o rozpočtu nebo plánovat další aktivity, staňte se členem spolku.',
+          activeMembershipLabel: 'Aktivní členství:',
+          activeMembershipValue: 'plnohodnotné hlasování na členské schůzi a osobní účast na schůzích.',
+          passiveMembershipLabel: 'Pasivní členství:',
+          passiveMembershipValue: 'členství v komunitě, informace a možnost podílet se bez nutnosti pravidelné účasti na schůzích.',
+          membershipStep1: 'Vyplňte a vlastnoručně podepište přihlášku.',
+          membershipStep2: 'Naskenujte ji (nebo čitelně vyfoťte mobilem) a pošlete na e-mail: prihlaska@spolekzsmeteo.cz nebo ji předejte třídnímu učiteli či zástupci výkonného výboru Spolku.',
+          membershipStep3: 'Uhraďte roční členský příspěvek 200 Kč za člena.',
+          membershipNote: 'Do variabilního symbolu zadejte své 9místné telefonní číslo, které jste uvedli v přihlášce.'
+        },
+        vi: {
+          brand: 'Hiệp hội bạn bè Trường Tiểu học Meteo',
+          backLink: '← Quay lại trang chủ',
+          pageTitle: 'Thành viên hoặc quyên góp',
+          lead: 'Để tạo ra môi trường an toàn và truyền cảm hứng cho trẻ em, chúng tôi luôn hỗ trợ các hoạt động, đồ dùng và toàn bộ cộng đồng trường học. Bạn có thể ủng hộ trường theo hai cách – bằng khoản đóng góp một lần hoặc bằng tư cách thành viên của hiệp hội.',
+          variantA: 'Phương án A: Quyên góp nhanh qua mã QR',
+          variantAText: 'Bạn không muốn điền bất kỳ biểu mẫu hay đơn đăng ký nào? Khi đó, khoản quyên góp một lần là cách dễ nhất.',
+          donationStep1: 'Chỉ cần mở ứng dụng ngân hàng di động.',
+          donationStep2: 'Quét mã QR ở bên phải.',
+          donationStep3: 'Trong ghi chú, hãy ghi tên và lớp của con bạn.',
+          recommendedAmountLabel: 'Số tiền khuyến nghị:',
+          recommendedAmountValue: '200 Kč cho mỗi trẻ em trong trường. Hai anh em ruột = 400 Kč, ba anh em ruột = 600 Kč.',
+          accountNote: 'Bạn có thể điều chỉnh số tiền theo khả năng của mình. Số tài khoản của hiệp hội: 2702172041/2010.',
+          qrTitle: 'Mã QR để quyên góp',
+          downloadForm: 'Tải đơn đăng ký thành viên',
+          variantB: 'Phương án B: Thành viên chính thức',
+          variantBText: 'Nếu bạn muốn trực tiếp ảnh hưởng đến các dự án được hiệp hội hỗ trợ, muốn bỏ phiếu về ngân sách hoặc lên kế hoạch cho các hoạt động tiếp theo, hãy trở thành thành viên của hiệp hội.',
+          activeMembershipLabel: 'Thành viên tích cực:',
+          activeMembershipValue: 'có quyền bỏ phiếu đầy đủ tại cuộc họp thành viên và tham dự trực tiếp các cuộc họp.',
+          passiveMembershipLabel: 'Thành viên thụ động:',
+          passiveMembershipValue: 'tham gia cộng đồng, nhận thông tin và có cơ hội đóng góp mà không cần tham gia đều đặn vào các cuộc họp.',
+          membershipStep1: 'Điền vào và ký tên vào đơn đăng ký.',
+          membershipStep2: 'Quét hoặc chụp rõ ràng bằng điện thoại và gửi qua email: prihlaska@spolekzsmeteo.cz hoặc chuyển cho giáo viên chủ nhiệm hoặc đại diện Ủy ban điều hành của Hiệp hội.',
+          membershipStep3: 'Trả phí thành viên hàng năm 200 Kč cho mỗi thành viên.',
+          membershipNote: 'Trong biến số, hãy ghi 9 chữ số điện thoại bạn đã nêu trong đơn đăng ký.'
+        },
+        en: {
+          brand: 'Friends of Meteo Primary School Association',
+          backLink: '← Back to home page',
+          pageTitle: 'Membership or donation',
+          lead: 'To create a safe and inspiring environment for children, we support activities, equipment and the whole school community in the long term. You can support the school in two ways – either with a one-off donation or through membership in the association.',
+          variantA: 'Option A: Quick donation via QR code',
+          variantAText: 'Do not want to fill out any forms or applications? In that case, a one-off donation is the easiest option.',
+          donationStep1: 'Just open your mobile banking app.',
+          donationStep2: 'Scan the QR code on the right.',
+          donationStep3: 'Please include the child’s name and class in the note.',
+          recommendedAmountLabel: 'Recommended amount:',
+          recommendedAmountValue: '200 CZK per child at school. Two siblings = 400 CZK, three siblings = 600 CZK.',
+          accountNote: 'You can adjust the amount according to your possibilities. Association account number: 2702172041/2010.',
+          qrTitle: 'Donation QR code',
+          downloadForm: 'Download membership form',
+          variantB: 'Option B: Regular membership',
+          variantBText: 'If you want to influence the projects supported by the association, vote on the budget or plan future activities, become a member of the association.',
+          activeMembershipLabel: 'Active membership:',
+          activeMembershipValue: 'full voting rights at the membership meeting and personal participation in meetings.',
+          passiveMembershipLabel: 'Passive membership:',
+          passiveMembershipValue: 'membership in the community, information and the chance to participate without regular meeting attendance.',
+          membershipStep1: 'Fill in and sign the application form by hand.',
+          membershipStep2: 'Scan it (or take a clear photo) and send it by email: prihlaska@spolekzsmeteo.cz or pass it to the class teacher or a representative of the association board.',
+          membershipStep3: 'Pay the annual membership fee of 200 CZK per member.',
+          membershipNote: 'In the variable symbol field, enter the 9-digit phone number you listed on the application.'
+        },
+        uk: {
+          brand: 'Спілка друзів початкової школи Meteo',
+          backLink: '← Повернутися на головну',
+          pageTitle: 'Членство або внесок',
+          lead: 'Щоб створити безпечне та надихаюче середовище для дітей, ми довгий час підтримуємо діяльність, навчальне обладнання та всю шкільну громаду. Ви можете підтримати школу двома способами — одноразовим внеском або членством у спілці.',
+          variantA: 'Варіант A: Швидкий внесок через QR-код',
+          variantAText: 'Не хочете заповнювати форми чи заяви? Тоді одноразовий внесок є найпростішим варіантом.',
+          donationStep1: 'Просто відкрийте мобільне банківське застосування.',
+          donationStep2: 'Відскануйте QR-код праворуч.',
+          donationStep3: 'У примітці вкажіть ім’я та клас вашої дитини.',
+          recommendedAmountLabel: 'Рекомендована сума:',
+          recommendedAmountValue: '200 Kč за кожну дитину в школі. Два брати/сестри = 400 Kč, три = 600 Kč.',
+          accountNote: 'Суму можна змінити залежно від ваших можливостей. Розрахунковий рахунок спілки: 2702172041/2010.',
+          qrTitle: 'QR-код для внеску',
+          downloadForm: 'Завантажити заяву члена',
+          variantB: 'Варіант B: Офіційне членство',
+          variantBText: 'Якщо ви хочете впливати на проєкти, які підтримує спілка, голосувати за бюджет або планувати майбутні заходи, станьте членом спілки.',
+          activeMembershipLabel: 'Активне членство:',
+          activeMembershipValue: 'повне право голосу на членській конференції та особиста участь у засіданнях.',
+          passiveMembershipLabel: 'Пасивне членство:',
+          passiveMembershipValue: 'членство в громаді, інформація та можливість брати участь без регулярної присутності на засіданнях.',
+          membershipStep1: 'Заповніть заяву та підпишіть її власноруч.',
+          membershipStep2: 'Відскануйте її (або зробіть чітке фото) і надішліть на e-mail: prihlaska@spolekzsmeteo.cz або передайте класному вчителю або представнику виконавчого комітету Спілки.',
+          membershipStep3: 'Сплатіть річний членський внесок 200 Kč за члена.',
+          membershipNote: 'У полі змінного символу вкажіть 9-значний номер телефону, який ви вказали в заяві.'
+        }
+      };
+
+      const supportedLanguages = ['cs', 'vi', 'en', 'uk'];
+      const defaultLanguage = 'cs';
+
+      function setLanguage(lang) {
+        const selected = supportedLanguages.includes(lang) ? lang : defaultLanguage;
+        const text = translations[selected];
+
+        document.documentElement.lang = selected;
+        document.title = text.pageTitle;
+
+        const metaDescription = document.querySelector('meta[name="description"]');
+        if (metaDescription) {
+          metaDescription.setAttribute('content', text.lead);
+        }
+
+        document.querySelectorAll('[data-i18n]').forEach((node) => {
+          const key = node.dataset.i18n;
+          if (text[key]) {
+            node.textContent = text[key];
+          }
+        });
+
+        document.querySelectorAll('.lang-btn').forEach((button) => {
+          const isActive = button.dataset.lang === selected;
+          button.classList.toggle('active', isActive);
+          button.setAttribute('aria-pressed', String(isActive));
+        });
+
+        localStorage.setItem('spolek-meteo-lang', selected);
+      }
+
+      const savedLanguage = localStorage.getItem('spolek-meteo-lang');
+      setLanguage(savedLanguage || defaultLanguage);
+
+      document.querySelectorAll('.lang-btn').forEach((button) => {
+        button.addEventListener('click', () => setLanguage(button.dataset.lang));
+      });
+    </script>
   </body>
 </html>
