@@ -56,6 +56,14 @@
       .qr-box img{display:block; width:100%; max-width:220px; height:auto; border-radius:8px}
       .form-link{display:inline-flex; align-items:center; justify-content:center; margin-top:12px; padding:12px 16px; border-radius:10px; text-decoration:none; background:#0b6efd; color:#fff; font-weight:700; box-shadow:0 8px 16px rgba(11,110,253,0.18)}
       .small-note{font-size:0.92rem; color:var(--muted)}
+      .symbol-generator{margin-top:16px; padding:14px; background:#fff; border:1px solid #bfdbfe; border-radius:12px}
+      .symbol-generator p{margin:0 0 10px}
+      .symbol-generator-controls{display:flex; gap:10px; align-items:center; flex-wrap:wrap}
+      .symbol-value{min-width:180px; padding:10px 12px; border:1px solid #cbd5e1; border-radius:8px; background:#f8fafc; color:#0f172a; font:700 1.25rem ui-monospace, SFMono-Regular, Consolas, monospace; letter-spacing:0.04em; text-align:center}
+      .generate-button{border:0; border-radius:8px; padding:11px 14px; background:#0f172a; color:#fff; font:inherit; font-weight:700; cursor:pointer}
+      .generate-button:hover{background:#1e293b}
+      .generator-steps{margin:10px 0 0 20px; padding:0}
+      .generator-steps li{margin-top:4px}
 
       .events-section{margin-top:32px}
       .events-card{background:#f8fafc; border:1px solid #e2e8f0; border-radius:16px; overflow:hidden}
@@ -192,11 +200,11 @@
             <article class="help-card">
               <h3 data-i18n="variantA">Varianta A: Rychlý dar</h3>
               <div class="qr-box" aria-label="QR kód pro dar">
-                <img src="qr-clen-darce.jpg" alt="QR kód pro rychlý dar do spolku" />
+                <img src="QRPlatba_na_ucet_2702172041.png" alt="QR kód pro rychlý dar do spolku" />
               </div>
               <p data-i18n="quickDonationText">Nechcete vyplňovat formuláře? V tom případě stačí otevřít mobilní bankovnictví a naskenovat QR kód.</p>
               <p><strong data-i18n="recommendedAmountLabel">Doporučená výše:</strong> <span data-i18n="recommendedAmountValue">200 Kč za každé dítě ve škole. Dva sourozenci = 400 Kč, tři sourozenci = 600 Kč.</span></p>
-              <p class="small-note" data-i18n="accountNote">Do poznámky uveďte jméno a třídu dítěte. Číslo účtu spolku: 2702172041/2010.</p>
+              <p class="small-note" data-i18n="accountNote">Do poznámky uveďte jméno a třídu dítěte. Číslo účtu spolku: 2702172041/2010. Konstantní symbol: 222</p>
             </article>
 
             <article class="help-card">
@@ -212,8 +220,19 @@
                 <li><span data-i18n="howTo2">Pošlete ji na e-mail</span> <a href="mailto:prihlaska@spolekzsmeteo.cz">prihlaska@spolekzsmeteo.cz</a>.</li>
                 <li data-i18n="howTo3">Uhraďte roční členský příspěvek 200 Kč za člena.</li>
               </ol>
+              <div class="symbol-generator">
+                <p data-i18n="generatorIntro">Postup:</p>
+                <div class="symbol-generator-controls">
+                  <output class="symbol-value" id="variable-symbol" aria-live="polite">0000000000</output>
+                  <button class="generate-button" id="generate-symbol" type="button" data-i18n="generateSymbol">Vygenerovat číslo</button>
+                </div>
+                <ol class="generator-steps">
+                  <li data-i18n="generatorStep1">Vygenerujte si náhodné desetimístné číslo.</li>
+                  <li data-i18n="generatorStep2">Číslo zapište do pole „Kód přihlášky / variabilní symbol“ v přihlášce.</li>
+                  <li data-i18n="generatorStep3">Načtěte QR kód, doplňte stejné číslo a platbu potvrďte.</li>
+                </ol>
+              </div>
               <a class="form-link" href="prihlaska_clena_spolku_form.pdf" download="prihlaska_clena_spolku_form.pdf" target="_blank" rel="noopener noreferrer" data-i18n="downloadForm">Stáhnout přihlášku člena spolku (PDF)</a>
-              <div style="margin-top:12px"><a href="clen-vs-darce.html" data-i18n="readMore">Přečíst informace o rozdílu mezi členstvím a darem</a></div>
               <div style="margin-top:8px"><a href="stanovy-spolekpratelzsmeteo-20251008.pdf" target="_blank" rel="noopener noreferrer" data-i18n="downloadStatutes">Stáhnout aktuální stanovy spolku (PDF)</a></div>
             </article>
           </div>
@@ -287,7 +306,7 @@
           quickDonationText: 'Nechcete vyplňovat formuláře? V tom případě stačí otevřít mobilní bankovnictví a naskenovat QR kód.',
           recommendedAmountLabel: 'Doporučená výše:',
           recommendedAmountValue: '200 Kč za každé dítě ve škole. Dva sourozenci = 400 Kč, tři sourozenci = 600 Kč.',
-          accountNote: 'Do poznámky uveďte jméno a třídu dítěte. Číslo účtu spolku: 2702172041/2010.',
+          accountNote: 'Do poznámky uveďte jméno a třídu dítěte. Číslo účtu spolku: 2702172041/2010. Konstantní symbol: 222',
           variantB: 'Varianta B: Řádné členství',
           membershipIntro: 'Chcete mít vliv na rozpočet, hlasovat o projektech a aktivně se podílet na dění ve spolku? Pak se staňte řádným členem.',
           activeMembershipLabel: 'Aktivní členství:',
@@ -298,8 +317,12 @@
           howTo1: 'Vyplňte a podepište přihlášku.',
           howTo2: 'Pošlete ji na e-mail',
           howTo3: 'Uhraďte roční členský příspěvek 200 Kč za člena.',
+          generatorIntro: 'Postup:',
+          generateSymbol: 'Vygenerovat číslo',
+          generatorStep1: 'Vygenerujte si náhodné desetimístné číslo.',
+          generatorStep2: 'Číslo zapište do pole „Kód přihlášky / variabilní symbol“ v přihlášce.',
+          generatorStep3: 'Načtěte QR kód, doplňte stejné číslo a platbu potvrďte.',
           downloadForm: 'Stáhnout přihlášku člena spolku (PDF)',
-          readMore: 'Přečíst informace o rozdílu mezi členstvím a darem',
           downloadStatutes: 'Stáhnout aktuální stanovy spolku (PDF)',
           eventsTitle: 'Plánované akce',
           tableDate: 'Datum',
@@ -340,7 +363,7 @@
           quickDonationText: 'Bạn không muốn điền biểu mẫu? Trong trường hợp đó, chỉ cần mở ngân hàng di động và quét mã QR.',
           recommendedAmountLabel: 'Số tiền khuyến nghị:',
           recommendedAmountValue: '200 Kč cho mỗi trẻ em trong trường. Hai anh em ruột = 400 Kč, ba anh em ruột = 600 Kč.',
-          accountNote: 'Trong ghi chú, hãy ghi tên và lớp của con. Số tài khoản của hiệp hội: 2702172041/2010.',
+          accountNote: 'Trong ghi chú, hãy ghi tên và lớp của con. Số tài khoản của hiệp hội: 2702172041/2010. Mã hằng số: 222',
           variantB: 'Phương án B: Thành viên chính thức',
           membershipIntro: 'Bạn muốn có ảnh hưởng đến ngân sách, bỏ phiếu về dự án và tham gia tích cực vào hoạt động của hiệp hội? Hãy trở thành thành viên chính thức.',
           activeMembershipLabel: 'Thành viên tích cực:',
@@ -351,8 +374,12 @@
           howTo1: 'Điền và ký đơn đăng ký.',
           howTo2: 'Gửi qua email',
           howTo3: 'Trả phí thành viên hàng năm 200 Kč cho mỗi thành viên.',
+          generatorIntro: 'Cách thực hiện:',
+          generateSymbol: 'Tạo số',
+          generatorStep1: 'Tạo một số ngẫu nhiên gồm mười chữ số.',
+          generatorStep2: 'Ghi số vào ô "Mã đơn đăng ký / mã biến đổi" trong đơn đăng ký.',
+          generatorStep3: 'Quét mã QR, nhập cùng số đó và xác nhận thanh toán.',
           downloadForm: 'Tải đơn đăng ký thành viên (PDF)',
-          readMore: 'Đọc thông tin về sự khác biệt giữa tư cách thành viên và đóng góp',
           downloadStatutes: 'Tải điều lệ hiện hành của hiệp hội (PDF)',
           eventsTitle: 'Sự kiện đã lên kế hoạch',
           tableDate: 'Ngày',
@@ -393,7 +420,7 @@
           quickDonationText: 'Do not want to fill out forms? In that case, simply open your mobile banking app and scan the QR code.',
           recommendedAmountLabel: 'Recommended amount:',
           recommendedAmountValue: '200 CZK per child at school. Two siblings = 400 CZK, three siblings = 600 CZK.',
-          accountNote: 'Please include the child’s name and class in the note. Association account number: 2702172041/2010.',
+          accountNote: 'Please include the child’s name and class in the note. Association account number: 2702172041/2010. Constant symbol: 222',
           variantB: 'Option B: Regular membership',
           membershipIntro: 'Do you want to influence the budget, vote on projects and actively participate in the association’s activities? Then become a full member.',
           activeMembershipLabel: 'Active membership:',
@@ -404,8 +431,12 @@
           howTo1: 'Fill out and sign the application form.',
           howTo2: 'Send it by email',
           howTo3: 'Pay the annual membership fee of 200 CZK per member.',
+          generatorIntro: 'Instructions:',
+          generateSymbol: 'Generate number',
+          generatorStep1: 'Generate a random ten-digit number.',
+          generatorStep2: 'Write the number in the “Application code / variable symbol” field on the application form.',
+          generatorStep3: 'Scan the QR code, enter the same number and confirm the payment.',
           downloadForm: 'Download membership application (PDF)',
-          readMore: 'Read information about the difference between membership and donation',
           downloadStatutes: 'Download the current association statutes (PDF)',
           eventsTitle: 'Planned events',
           tableDate: 'Date',
@@ -446,7 +477,7 @@
           quickDonationText: 'Не хочете заповнювати форми? Тоді просто відкрийте мобільне банківське застосування та відскануйте QR-код.',
           recommendedAmountLabel: 'Рекомендована сума:',
           recommendedAmountValue: '200 Kč за кожну дитину в школі. Два брати/сестри = 400 Kč, три = 600 Kč.',
-          accountNote: 'У примітці вкажіть ім’я та клас дитини. Розрахунковий рахунок спілки: 2702172041/2010.',
+          accountNote: 'У примітці вкажіть ім’я та клас дитини. Розрахунковий рахунок спілки: 2702172041/2010. Постійний символ: 222',
           variantB: 'Варіант B: Офіційне членство',
           membershipIntro: 'Хочете впливати на бюджет, голосувати за проєкти та активно брати участь у житті спілки? Тоді станьте повноправним членом.',
           activeMembershipLabel: 'Активне членство:',
@@ -457,8 +488,12 @@
           howTo1: 'Заповніть і підпишіть заяву.',
           howTo2: 'Надішліть її на електронну пошту',
           howTo3: 'Сплачуйте річний членський внесок 200 Kč за члена.',
+          generatorIntro: 'Порядок дій:',
+          generateSymbol: 'Згенерувати число',
+          generatorStep1: 'Згенеруйте випадкове десятизначне число.',
+          generatorStep2: 'Запишіть число в поле «Код заяви / змінний символ» у заяві.',
+          generatorStep3: 'Відскануйте QR-код, введіть те саме число та підтвердьте платіж.',
           downloadForm: 'Завантажити заяву члена спілки (PDF)',
-          readMore: 'Дізнайтеся про різницю між членством і пожертвуванням',
           downloadStatutes: 'Завантажити актуальні статути спілки (PDF)',
           eventsTitle: 'Заплановані події',
           tableDate: 'Дата',
@@ -508,6 +543,14 @@
 
       const savedLanguage = localStorage.getItem('spolek-meteo-lang');
       setLanguage(savedLanguage || defaultLanguage);
+
+      function generateVariableSymbol() {
+        const symbol = Math.floor(1000000000 + Math.random() * 9000000000);
+        document.getElementById('variable-symbol').textContent = String(symbol);
+      }
+
+      generateVariableSymbol();
+      document.getElementById('generate-symbol').addEventListener('click', generateVariableSymbol);
 
       document.querySelectorAll('.lang-btn').forEach((button) => {
         button.addEventListener('click', () => setLanguage(button.dataset.lang));
